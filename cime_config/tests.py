@@ -95,6 +95,18 @@ _TESTS = {
             )
         },
 
+    "eam_ne4_vs_ne4pg2" : {
+        "tests"   : (
+            "ERP_Ln18.ne4_oQU240.F2010",
+            "ERP_Ln18.ne4pg2_oQU480.F2010",
+            "SMS_Ln18.ne4pg2_oQU480.F2010",
+            "REP_Ln18.ne4pg2_oQU480.F2010",
+            "ERS_Ln18.ne4pg2_oQU480.F2010",
+            "PET_Ln18.ne4pg2_oQU480.F2010",
+            "PEM_Ln18.ne4pg2_oQU480.F2010",
+            )
+        },
+
     "e3sm_atm_integration" : {
         "inherit" : ("eam_preqx", "eam_theta"),
         "tests" : (
