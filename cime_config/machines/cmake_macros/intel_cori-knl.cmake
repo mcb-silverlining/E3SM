@@ -1,4 +1,4 @@
-set(ALBANY_PATH "/global/homes/m/mperego/e3sm-software/albany-trilinos/albany-install-2021-10-01")
+set(ALBANY_PATH "/global/homes/m/mperego/e3sm-software/albany-trilinos/albany-install-2022-12-21")
 string(APPEND CONFIG_ARGS " --host=cray")
 if (MPILIB STREQUAL impi)
   string(APPEND CFLAGS " -axMIC-AVX512 -xCORE-AVX2")
