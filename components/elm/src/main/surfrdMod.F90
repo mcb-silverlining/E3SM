@@ -986,7 +986,7 @@ contains
 
 
     if (.not. create_crop_landunit) then
-       call check_dim(ncid, 'natpft', surfpft_size)
+       !call check_dim(ncid, 'natpft', surfpft_size)
     else
        call check_dim(ncid, 'natpft', surfpft_size + cft_size)
     endif

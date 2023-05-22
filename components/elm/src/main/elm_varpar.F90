@@ -164,6 +164,7 @@ contains
        natpft_size = numpft + 1               ! note that numpft doesn't include bare ground -- thus we add 1
        cft_size    = 0
     end if
+    natpft_size = 1 + (1 + 1)
 
     ! Determine array start/end indices based on the array sizes
     call update_pft_array_bounds()

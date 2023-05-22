@@ -264,7 +264,8 @@ contains
 
     allocate (wt_lunit     (begg:endg,1:max_topounits, max_lunit           )) 
     allocate (urban_valid  (begg:endg,1:max_topounits                      ))
-    allocate (wt_nat_patch (begg:endg,1:max_topounits, surfpft_lb:surfpft_ub ))
+    !allocate (wt_nat_patch (begg:endg,1:max_topounits, surfpft_lb:surfpft_ub ))
+    allocate (wt_nat_patch (begg:endg,1:max_topounits, 0:16 ))
     allocate (wt_cft       (begg:endg,1:max_topounits, cft_lb:cft_ub       ))
     allocate (fert_cft     (begg:endg,1:max_topounits, cft_lb:cft_ub       ))
     if (create_glacier_mec_landunit) then
