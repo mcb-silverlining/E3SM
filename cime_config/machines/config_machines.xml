@@ -622,6 +622,51 @@
     </environment_variables>
   </machine>
 
+  <machine MACH="aws-hpc6a">
+		<DESC></DESC>
+    <NODENAME_REGEX>regular-dy-compute-hpc6a*</NODENAME_REGEX>
+    <OS>LINUX</OS>
+    <COMPILERS>intel</COMPILERS>
+    <MPILIBS>impi</MPILIBS>
+    <CIME_OUTPUT_ROOT>/scratch/$USER</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>/scratch/$USER/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/scratch/$USER/inputdata/tss/CTSM_datm_forcing_data</DIN_LOC_ROOT_CLMFORC>
+    <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>$ENV{CESMDATAROOT}/cesm_baselines</BASELINE_ROOT>
+    <CCSM_CPRNC>$ENV{CESMDATAROOT}/tools/cime/tools/cprnc/cprnc</CCSM_CPRNC>
+    <GMAKE_J>4</GMAKE_J>
+    <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
+    <SUPPORTED_BY>cseg</SUPPORTED_BY>
+    <!-- have not seen any performance benefit in smt -->
+    <MAX_TASKS_PER_NODE>96</MAX_TASKS_PER_NODE>
+    <MAX_MPITASKS_PER_NODE>96</MAX_MPITASKS_PER_NODE>
+    <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
+    <mpirun mpilib="default">
+      <executable>srun</executable>
+      <arguments>
+        <arg name="num_tasks">-n {{ total_tasks }}</arg>
+        <arg name="bindinfo"> --cpu-bind=verbose </arg>
+        <arg name="cpu_bind">--cpu_bind=sockets --cpu_bind=verbose</arg>
+        <arg name="kill-on-bad-exit">--kill-on-bad-exit</arg>
+      </arguments>
+    </mpirun>
+    <module_system type="none"/>
+    <environment_variables>
+      <env name="OMP_STACKSIZE">256M</env>
+      <env name="TMPDIR">/scratch/$USER</env>
+      <env name="I_MPI_CC">icc</env>
+      <env name="I_MPI_CXX">icpc</env>
+      <env name="I_MPI_FC">ifort</env>
+      <env name="I_MPI_F90">ifort</env>
+      <env name="NETCDF_PATH">/opt/ncar/software</env>
+      <env name="NETCDF_C_PATH">/opt/ncar/software</env>
+      <env name="NETCDF_FORTRAN_PATH">/opt/ncar/software</env>
+      <env name="PNETCDF_PATH">/opt/ncar/software</env>
+    </environment_variables>
+    <resource_limits>
+      <resource name="RLIMIT_STACK">-1</resource>
+    </resource_limits>
+  </machine>
   <!-- KNL nodes of Cori -->
   <machine MACH="cori-knl">
     <DESC>Cori. XC40 Cray system at NERSC. KNL partition. os is CNL, 68 pes/node (for now only use 64), batch system is SLURM</DESC>

@@ -56,6 +56,18 @@
     </directives>
   </batch_system>
 
+  <batch_system MACH="aws-hpc6a" type="slurm">
+    <batch_submit>sbatch</batch_submit>
+    <submit_args>
+      <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
+      <arg flag="-p" name="$JOB_QUEUE"/>
+    </submit_args>
+
+    <queues>
+      <queue walltimemax="48:00:00" nodemin="1" nodemax="10">compute</queue>
+    </queues>
+  </batch_system>
+
    <batch_system MACH="spock" type="slurm">
      <queues>
        <queue strict="true" nodemin="1" nodemax="4" walltimemax="03:00:00" default="true">ecp</queue>
